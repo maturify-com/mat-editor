@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "mat-editor": [
+        "dist/mat-editor"
+      ],
+      "mat-editor/*": [
+        "dist/mat-editor/*"
+      ]
+    }
   }
 }

@@ -1,0 +1,54 @@
+<div class="mat-toolbar">
+  <div class="mat-toolbar-set">
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('bold')">
+      <!-- <i class="fa fa-bold" aria-hidden="true"></i> -->
+      <svg>
+        <use xlink:href="assets/icons/bold.svg"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('italic')">
+      <i class="fa fa-italic" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('underline')">
+      <i class="fa fa-underline" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('strikeThrough')">
+      <i class="fa fa-strikethrough" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('superscript')">
+      <i class="fa fa-superscript" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('subscript')">
+      <i class="fa fa-subscript" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="ngx-toolbar-set">
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('justifyLeft')" title="Justify Left">
+      <i class="fa fa-align-left" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('justifyCenter')" title="Justify Center">
+      <i class="fa fa-align-center" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('justifyRight')" title="Justify Right">
+      <i class="fa fa-align-right" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('justifyFull')" title="Justify">
+      <i class="fa fa-align-justify" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('indent')" title="Indent">
+      <i class="fa fa-indent" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('outdent')" title="Outdent">
+      <i class="fa fa-outdent" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="ngx-toolbar-set">
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('insertUnorderedList')"
+      title="Unordered List">
+      <i class="fa fa-list-ul" aria-hidden="true"></i>
+    </button>
+    <button type="button" class="mat-editor-button" (click)="triggerCommand('insertOrderedList')" title="Ordered List">
+      <i class="fa fa-list-ol" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>

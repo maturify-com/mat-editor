@@ -1,0 +1,34 @@
+.mat-toolbar {
+    border-radius: 0.5em;
+    background-color: #f3f3f3;
+    padding: 10px;
+    display: flex;
+    i {
+        color: #575a5d;
+    }
+}
+.mat-toolbar-set {
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.mat-editor-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 24px;
+    padding: 3px 5px;
+    width: 28px;
+    :hover{
+        color: #06c;
+    }
+}
+.svg-icon { // component tag
+    svg {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+    }
+  }
