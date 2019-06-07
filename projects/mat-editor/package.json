@@ -5,7 +5,7 @@
   "keywords" :["Angular","Editor"],
   "repository": {
     "type" : "git",
-    "url" : "https://github.com/maturify-com/mat-editor.git"
+    "url" : "https://github.com/maturify-com/mat-editor"
   },
   "peerDependencies": {
     "@angular/common": "^7.0.0",
