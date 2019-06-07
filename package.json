@@ -12,7 +12,7 @@
     "npm_pack": "cd dist/mat-editor && npm pack",
     "package": "npm run build_lib && npm run npm_pack"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~7.0.0",
     "@angular/common": "~7.0.0",
