@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { MatModuleModule } from 'mat-editor';
+import { MatEditorModule } from 'mat-editor';
 
 import { AppComponent } from './app.component';
 
@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    MatModuleModule
+    MatEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
