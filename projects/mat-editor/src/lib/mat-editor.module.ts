@@ -26,4 +26,4 @@ import { ExecuteCommandsService } from './common/execute-commands.service';
   ],
   providers: [ExecuteCommandsService]
 })
-export class MatModuleModule { }
+export class MatEditorModule { }

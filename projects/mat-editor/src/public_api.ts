@@ -4,4 +4,4 @@
 
 export * from './lib/common/execute-commands.service';
 export * from './lib/mat-editor.component';
-export * from './lib/mat-module.module';
+export * from './lib/mat-editor.module';
