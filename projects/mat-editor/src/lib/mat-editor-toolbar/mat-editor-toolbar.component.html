@@ -1,54 +1,192 @@
 <div class="mat-toolbar">
   <div class="mat-toolbar-set">
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('bold')">
-      <!-- <i class="fa fa-bold" aria-hidden="true"></i> -->
+    <button type="button" class="mat-editor-button" title="Bold" (click)="triggerCommand('bold')">
       <svg>
-        <use xlink:href="assets/icons/bold.svg"></use>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-bold"></use>
       </svg>
     </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('italic')">
-      <i class="fa fa-italic" aria-hidden="true"></i>
+    <button type="button" class="mat-editor-button" title="Italic" (click)="triggerCommand('italic')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-italic"></use>
+      </svg>
     </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('underline')">
-      <i class="fa fa-underline" aria-hidden="true"></i>
+    <button type="button" class="mat-editor-button" title="Underline" (click)="triggerCommand('underline')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-underline"></use>
+      </svg>
     </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('strikeThrough')">
-      <i class="fa fa-strikethrough" aria-hidden="true"></i>
+    <button type="button" class="mat-editor-button" title="Strikethrough" (click)="triggerCommand('strikeThrough')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg #icon-strikethrough"></use>
+      </svg>
     </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('superscript')">
-      <i class="fa fa-superscript" aria-hidden="true"></i>
+    <button type="button" class="mat-editor-button" title="Superscript" (click)="triggerCommand('superscript')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg #icon-superscript"></use>
+      </svg>
     </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('subscript')">
-      <i class="fa fa-subscript" aria-hidden="true"></i>
-    </button>
-  </div>
-  <div class="ngx-toolbar-set">
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('justifyLeft')" title="Justify Left">
-      <i class="fa fa-align-left" aria-hidden="true"></i>
-    </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('justifyCenter')" title="Justify Center">
-      <i class="fa fa-align-center" aria-hidden="true"></i>
-    </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('justifyRight')" title="Justify Right">
-      <i class="fa fa-align-right" aria-hidden="true"></i>
-    </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('justifyFull')" title="Justify">
-      <i class="fa fa-align-justify" aria-hidden="true"></i>
-    </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('indent')" title="Indent">
-      <i class="fa fa-indent" aria-hidden="true"></i>
-    </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('outdent')" title="Outdent">
-      <i class="fa fa-outdent" aria-hidden="true"></i>
+    <button type="button" class="mat-editor-button" title="Subscript" (click)="triggerCommand('subscript')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-subscript"></use>
+      </svg>
     </button>
   </div>
-  <div class="ngx-toolbar-set">
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('insertUnorderedList')"
-      title="Unordered List">
-      <i class="fa fa-list-ul" aria-hidden="true"></i>
+  <div class="mat-toolbar-set">
+    <button type="button" class="mat-editor-button" title="Justify Left" (click)="triggerCommand('justifyLeft')"
+      title="Justify Left">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-align-left"></use>
+      </svg>
     </button>
-    <button type="button" class="mat-editor-button" (click)="triggerCommand('insertOrderedList')" title="Ordered List">
-      <i class="fa fa-list-ol" aria-hidden="true"></i>
+    <button type="button" class="mat-editor-button" title="Justify Center" (click)="triggerCommand('justifyCenter')"
+      title="Justify Center">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-align-center"></use>
+      </svg>
     </button>
+    <button type="button" class="mat-editor-button" title="Justify Right" (click)="triggerCommand('justifyRight')"
+      title="Justify Right">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-align-right"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Justify" (click)="triggerCommand('justifyFull')"
+      title="Justify">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-align-justify"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Indent" (click)="triggerCommand('indent')" title="Indent">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-indent"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Outdent" (click)="triggerCommand('outdent')" title="Outdent">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-dedent"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="mat-toolbar-set">
+    <button type="button" class="mat-editor-button" title="Cut" (click)="triggerCommand('cut')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-cut"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Copy" (click)="triggerCommand('copy')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-copy"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Delete" (click)="triggerCommand('delete')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-trash"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Clear Formatting" (click)="triggerCommand('removeFormat')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-eraser"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Undo" (click)="triggerCommand('undo')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-rotate-left"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Redo" (click)="triggerCommand('redo')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-repeat"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="mat-toolbar-set">
+    <button type="button" class="mat-editor-button" title="Paragraph" (click)="triggerCommand('insertParagraph')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-paragraph"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Blockquote" (click)="triggerCommand('blockquote')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-quotes-left"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Remove Blockquote"
+      (click)="triggerCommand('removeBlockquote')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-quotes-right"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Horizontal Line"
+      (click)="triggerCommand('insertHorizontalRule')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-minus"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Unordered List"
+      (click)="triggerCommand('insertUnorderedList')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-list-ul"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Ordered List" (click)="triggerCommand('insertOrderedList')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-list-ol"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="mat-toolbar-set">
+    <button type="button" class="mat-editor-button" title="Insert Link" (click)="showLink()">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-chain"></use>
+      </svg>
+    </button>
+    <div class="form-popup" id="myForm">
+      <form class="form-container" [formGroup]="imageUrlForm" (ngSubmit)="insertLink()">
+        <label for="urlInput" class="small">Enter Url</label>
+        <input type="text" class="form-control-sm" id="URLInput" formControlName="urlLink" required>
+        <button type="submit" class="save-btn">Save</button>
+      </form>
+    </div>
+    <button type="button" class="mat-editor-button" title="Unlink" (click)="triggerCommand('unlink')">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-chain-broken"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Insert Image" (click)="enableImageUpload()">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-image"></use>
+      </svg>
+    </button>
+    <button type="button" class="mat-editor-button" title="Insert Video" (click)="showVideo()">
+      <svg>
+        <use xlink:href="../assets/icons/icon-set-1.svg#icon-youtube-play"></use>
+      </svg>
+    </button>
+    <div class="form-popup" id="myForm-2">
+      <form class="form-container" [formGroup]="videoUrlForm" (ngSubmit)="addVideoLink()">
+        <label for="urlInput" class="small">Enter Url</label>
+        <input type="text" class="form-control-sm" id="URLInput" formControlName="urlLink" required>
+        <button type="submit" class="save-btn">Save</button>
+      </form>
+      <div class="video-upload">
+        <button class="video-btn" (click)="uploadVideo()">
+          <i class="fa fa-upload"></i>
+        </button>
+      </div>
+    </div>
+    <button type="button" class="mat-editor-button" title="Insert Table" (click)="showTable()">
+      <svg>
+        <use xlink:href="../../../assets/iconmoon/icon-set-1.svg#icon-table"></use>
+      </svg>
+    </button>
+    <div class="form-popup" id="showTable">
+      <form class="form-container" [formGroup]="tableForm" (ngSubmit)="insertTables()">
+        <label for="urlInput" class="small">Rows</label>
+        <input type="text" class="form-control-sm" id="Rows" formControlName="rows" required>
+        <label class="small">Collumns</label>
+        <input type="text" class="form-control-sm" id="Collumns" formControlName="collumns" required>
+        <button type="submit" class="save-btn">Create Table</button>
+      </form>
+    </div>
   </div>
 </div>
