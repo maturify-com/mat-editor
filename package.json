@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build mat-editor",
+    "assets-copy": "node assets-copy.js",
     "npm_pack": "cd dist/mat-editor && npm pack",
     "package": "npm run build_lib && npm run npm_pack"
   },

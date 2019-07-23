@@ -5,7 +5,7 @@
       position: relative;
 
       .mat-editor-textarea {
-          min-height: 5rem;
+          min-height: 10rem;
           padding: 0.5rem 0.8rem 1rem 0.8rem;
           //border: 1px solid #ddd;
           background-color: transparent;
@@ -13,7 +13,7 @@
           overflow-y: auto;
           z-index: 2;
           position: relative;
-    
+          border: 1px solid #f3f3f3;
           &:focus,
           &.focus {
             outline: 0;

@@ -58,6 +58,8 @@ export class MatEditorComponent implements OnInit {
   @Input() enableToolbar: boolean;
   /** Endpoint for which the image to be uploaded */
   @Input() imageEndPoint: string;
+   /** Endpoint for which the video to be uploaded */
+   @Input() videoEndPoint: string;
   /**
    * The config property is a JSON object
    *
@@ -130,6 +132,7 @@ export class MatEditorComponent implements OnInit {
       enableToolbar: this.enableToolbar,
       showToolbar: this.showToolbar,
       imageEndPoint: this.imageEndPoint,
+      videoEndPoint:this.videoEndPoint,
       toolbar: this.toolbar
     };
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mat-Editor';
+
+
+  ngOnInit(){
+    document.getElementById("mat-editor").style.marginRight= "10%";
+    document.getElementById("mat-editor").style.marginLeft= "10%";
+  }
 }

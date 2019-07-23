@@ -157,7 +157,6 @@ export class ExecuteCommandsService {
   }
 
   insertVideoUrl(videoUrl: any): void {
-    console.log(videoUrl);
     if (this.savedSelection) {
       if (videoUrl) {
         const restored = Utils.restoreSelection(this.savedSelection);
@@ -179,7 +178,7 @@ export class ExecuteCommandsService {
     if (this.savedSelection) {
       const restored = Utils.restoreSelection(this.savedSelection);
       if (restored) {
-        let html = '<table class="tableContent" style="border-collapse:collapse;width:80%;margin:5% auto;" "><tbody>';
+        let html = '<table class="tableContent" style="border-collapse:collapse;width:80%;margin:5% auto;table-layout: auto;" "><tbody>';
         for (let i = 0; i < rows; i++) {
           html += "<tr>";
           for (let j = 0; j < collumns; j++) {
@@ -188,12 +187,77 @@ export class ExecuteCommandsService {
           html += "</tr>"
         }
         html += "</tbody></table>";
-        console.log(html);
         const inserted = document.execCommand('insertHTML', false, html);
       }
     }
   }
+  /**
+   * 
+   */
+  increaseFontSize(): void {
+    let defaultSize = 16;
+    defaultSize += 1;
+    if (this.savedSelection) {
+      const restored = Utils.restoreSelection(this.savedSelection);
+      if (restored) {
+        const fontPx = '<span style="font-size:' + defaultSize + 'px;">' + this.savedSelection + '</span>';
+        this.insertHtml(fontPx);
+      }
+    }
+  }
 
+  /**
+  * set font name/family for text
+  *
+  * @param fontName font-family to be set
+  */
+  setFontName(fontName: string): void {
+    if (this.savedSelection) {
+      //const deletedValue = this.deleteAndGetElement();
+      const restored = Utils.restoreSelection(this.savedSelection);
+      if (restored) {
+        const fontFamily = '<span style="font-family: ' + fontName + ';">' + this.savedSelection + '</span>';
+        this.insertHtml(fontFamily);
+      }
+
+    } else {
+      throw new Error('Range out of the editor');
+    }
+  }
+
+  setFontColor(color: string): void {
+    if (this.savedSelection) {
+      const restored = Utils.restoreSelection(this.savedSelection);
+      if (restored) {
+        document.execCommand('foreColor', false, color);
+      }
+    }
+  }
+  /**
+   * Set the font size
+   * @param size of the font that needs to be set
+   */
+  // setFontSize(fontSize: string): void {
+  //   if (this.savedSelection && this.checkSelection()) {
+  //     const deletedValue = this.deleteAndGetElement();
+
+  //     if (deletedValue) {
+  //       const restored = Utils.restoreSelection(this.savedSelection);
+
+  //       if (restored) {
+  //         if (this.isNumeric(fontSize)) {
+  //           const fontPx = '<span style="font-size: ' + fontSize + 'px;">' + deletedValue + '</span>';
+  //           this.insertHtml(fontPx);
+  //         } else {
+  //           const fontPx = '<span style="font-size: ' + fontSize + ';">' + deletedValue + '</span>';
+  //           this.insertHtml(fontPx);
+  //         }
+  //       }
+  //     }
+  //   } else {
+  //     throw new Error('Range out of the editor');
+  //   }
+  // }
 
   /**
    * Re-arrange the url into a embed url
