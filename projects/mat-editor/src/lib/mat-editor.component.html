@@ -1,7 +1,11 @@
-<div class="mat-editor">
-  <app-mat-editor-toolbar (execute)="executeCommands($event)"></app-mat-editor-toolbar>
+<div class="mat-editor" [style.width]="config['width']" [style.minWidth]="config['minWidth']">
+  <app-mat-editor-toolbar [config]="config" (execute)="executeCommands($event)"></app-mat-editor-toolbar>
   <div class="mat-wrapper">
-    <div class="mat-editor-textarea" contenteditable="true">
+    <div class="mat-editor-textarea" contenteditable="true" [attr.contenteditable]="config['editable']"
+      (blur)="onTextAreaBlur()" [style.height]="config['height']" [attr.spellcheck]="config['spellcheck']"
+      [style.minHeight]="config['minHeight']" [attr.translate]="config['translate']"
+      (input)="contentChange($event.target.innerHTML)" #ngxTextArea>
+      <!-- <span class="mat-editor-placeholder">{{ placeholder || config['placeholder'] }}</span> -->
     </div>
   </div>
 </div>

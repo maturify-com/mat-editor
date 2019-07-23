@@ -1,6 +1,6 @@
 {
-  "name": "@maturify/mat-editor",
-  "version": "1.0.0",
+  "name": "mat-editor",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,10 +9,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build mat-editor",
+    "assets-copy": "node assets-copy.js",
     "npm_pack": "cd dist/mat-editor && npm pack",
     "package": "npm run build_lib && npm run npm_pack"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "~7.0.0",
     "@angular/common": "~7.0.0",
