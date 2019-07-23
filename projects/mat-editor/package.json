@@ -1,6 +1,6 @@
 {
   "name": "mat-editor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is a simple editor for angular lovers.",
   "keywords" :["Angular","Editor"],
   "repository": {
