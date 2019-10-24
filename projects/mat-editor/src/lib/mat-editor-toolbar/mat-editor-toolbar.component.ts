@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ExecuteCommandsService } from '../common/execute-commands.service';
+import { ImageUploadService } from '../common/imageUpload.service';
+import { Subscription } from 'rxjs';
 import { HttpResponse } from '@angular/common/http';
 import * as Utils from '../common/mat-editor.utils';
 
@@ -10,6 +12,8 @@ import * as Utils from '../common/mat-editor.utils';
   styleUrls: ['./mat-editor-toolbar.component.scss']
 })
 export class MatEditorToolbarComponent implements OnInit {
+  private imageURLSubscription: Subscription;
+  private imageURL: any;
 
   /** holds values of the insert link form */
   public imageUrlForm: FormGroup;
@@ -53,9 +57,20 @@ export class MatEditorToolbarComponent implements OnInit {
   constructor(
     private _formBuilder: FormBuilder,
     private executeCommand: ExecuteCommandsService,
+    private imageUploadService: ImageUploadService
   ) { }
 
   ngOnInit() {
+    this.imageURLSubscription = this.imageUploadService.afterImageUpload.subscribe((url) => {
+      this.imageURL = url;
+      try {
+        this.executeCommand.insertImage(this.imageURL);
+      } catch (error) {
+        console.log(error);
+      }
+      this.uploadComplete = true;
+      this.isUploading = false;
+    });
     this.imageUrlForm = new FormGroup({
       'urlLink': new FormControl('', Validators.required)
     });
@@ -144,17 +159,7 @@ export class MatEditorToolbarComponent implements OnInit {
       if (input.files.length > 0) {
         const file = input.files[0];
         try {
-          this.executeCommand.uploadImage(file, this.config.imageEndPoint).subscribe(event => {
-            if (event instanceof HttpResponse) {
-              try {
-                this.executeCommand.insertImage(event.body.url);
-              } catch (error) {
-                console.log(error);
-              }
-              this.uploadComplete = true;
-              this.isUploading = false;
-            }
-          });
+          this.imageUploadService.onImageUpload.emit(file);
         } catch (error) {
           console.log(error);
         }
