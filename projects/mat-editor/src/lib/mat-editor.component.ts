@@ -83,7 +83,6 @@ export class MatEditorComponent implements OnInit {
   Utils: any = Utils;
   private onChange: (value: string) => void;
   private onTouched: () => void;
-  private imageSubscription: Subscription;
 
   /** holds values of the insert link form */
   urlForm: FormGroup;
@@ -117,7 +116,7 @@ export class MatEditorComponent implements OnInit {
 
   ngOnInit() {
 
-    this.imageSubscription = this.imageUploadService.onImageUpload.subscribe((file) => {
+    this.imageUploadService.onImageUpload.subscribe((file) => {
       this.onImgUpload.emit(file);
     });
     /**
