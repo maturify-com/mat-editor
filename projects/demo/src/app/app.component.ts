@@ -7,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mat-Editor';
-
+  
+  editorConfig = {
+    editable: true,
+    spellcheck: false,
+    showToolbar:true,
+    height: '20rem',
+    minHeight: '5rem',
+    placeholder: 'Type text',
+    translate: 'no',
+    videoEndPoint:'heuy',
+    imageEndPoint:'hey',
+    toolbar:[]
+  };
 
   ngOnInit(){
     document.getElementById("mat-editor").style.marginRight= "10%";
