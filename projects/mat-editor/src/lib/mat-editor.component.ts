@@ -19,10 +19,16 @@ import * as Utils from './common/mat-editor.utils';
 })
 export class MatEditorComponent implements OnInit {
 
+  /**
+   * Sends the image url to the toolbar When it get sets through the directive 
+   */
   @Input()
   set imageURL(url: any) {
-    this.imageUploadService.afterImageUpload.emit(url);
+    if (url !== undefined && url !== null && url !== '') {
+      this.imageUploadService.afterImageUpload.emit(url);
+    }
   }
+
   /**
  * The config property is a JSON object
  *
@@ -83,6 +89,7 @@ export class MatEditorComponent implements OnInit {
   Utils: any = Utils;
   private onChange: (value: string) => void;
   private onTouched: () => void;
+  private imageSubscription: Subscription;
 
   /** holds values of the insert link form */
   urlForm: FormGroup;
@@ -115,10 +122,11 @@ export class MatEditorComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    this.imageUploadService.onImageUpload.subscribe((file) => {
+    //subscribe for any images sent by the mat-editor toolbar component
+    this.imageSubscription = this.imageUploadService.onImageUpload.subscribe((file) => {
       this.onImgUpload.emit(file);
     });
+
     /**
      * set configuartion
      */
@@ -215,6 +223,12 @@ export class MatEditorComponent implements OnInit {
   contentChange(innerHTML: string): void {
     if (typeof this.onChange === 'function') {
       this.onChange(innerHTML);
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.imageSubscription) {
+      this.imageSubscription.unsubscribe();
     }
   }
 }

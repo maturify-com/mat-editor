@@ -62,14 +62,15 @@ export class MatEditorToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.imageURLSubscription = this.imageUploadService.afterImageUpload.subscribe((url) => {
+      // subscribing for a image url which is sent from the mat-editor component
       this.imageURL = url;
       try {
+        //removing the loader after image gets added to the content
+        this.executeCommand.removeElement("matLoading");
         this.executeCommand.insertImage(this.imageURL);
       } catch (error) {
         console.log(error);
       }
-      this.uploadComplete = true;
-      this.isUploading = false;
     });
     this.imageUrlForm = new FormGroup({
       'urlLink': new FormControl('', Validators.required)
@@ -159,6 +160,7 @@ export class MatEditorToolbarComponent implements OnInit {
       if (input.files.length > 0) {
         const file = input.files[0];
         try {
+          this.executeCommand.showLoadingTag("[..Uploading Image..]");
           this.imageUploadService.onImageUpload.emit(file);
         } catch (error) {
           console.log(error);
@@ -254,6 +256,12 @@ export class MatEditorToolbarComponent implements OnInit {
           console.log(error);
         }
       }
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.imageURLSubscription) {
+      this.imageURLSubscription.unsubscribe();
     }
   }
 }
