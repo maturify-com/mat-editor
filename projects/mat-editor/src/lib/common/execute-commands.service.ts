@@ -51,7 +51,6 @@ export class ExecuteCommandsService {
  */
   createLink(params: any): void {
     if (this.savedSelection) {
-      //const newUrl = '<a href="' + params.urlLink + '" target="_blank">' + this.savedSelection.startContainer.data + '</a>';
       if (document.getSelection().type !== 'Range') {
         const restored = Utils.restoreSelection(this.savedSelection);
         if (restored) {
@@ -95,7 +94,7 @@ export class ExecuteCommandsService {
   * @param imageURI url of the image to be inserted
   */
   insertImage(imageUrl: string): void {
-    const image = '<img src=' + imageUrl + ' width=100% >' // fix a width to the image
+    const image = '<img src=' + imageUrl + ' width=100% >'; // fix a width to the image
     if (this.savedSelection) {
       if (imageUrl) {
         const restored = Utils.restoreSelection(this.savedSelection);
@@ -112,7 +111,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-   * 
+   *
    * @param file video that needs to be uploaded
    * @param endpoint back end enpoint to which the video has to be sent
    */
@@ -144,7 +143,7 @@ export class ExecuteCommandsService {
       if (videoUrl) {
         const restored = Utils.restoreSelection(this.savedSelection);
         if (restored) {
-          const video = '<video width="100%" controls> <source src=' + videoUrl + ' type="video/mp4"></video>'
+          const video = '<video width="100%" controls> <source src=' + videoUrl + ' type="video/mp4"></video>';
           const inserted = document.execCommand('insertHTML', false, video);
           if (!inserted) {
             throw new Error('Invalid URL');
@@ -170,7 +169,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-   * 
+   *
    * @param rows Number of rows that includes in the table
    * @param collumns Number of collumns that includes in the table
    */
@@ -182,9 +181,9 @@ export class ExecuteCommandsService {
         for (let i = 0; i < rows; i++) {
           html += "<tr>";
           for (let j = 0; j < collumns; j++) {
-            html += '<td style="padding:15px;border:1px solid black;vertical-align:middle;"></td>'
+            html += '<td style="padding:15px;border:1px solid black;vertical-align:middle;"></td>';
           }
-          html += "</tr>"
+          html += "</tr>";
         }
         html += "</tbody></table>";
         const inserted = document.execCommand('insertHTML', false, html);
@@ -192,7 +191,7 @@ export class ExecuteCommandsService {
     }
   }
   /**
-   * 
+   *
    */
   increaseFontSize(): void {
     let defaultSize = 16;
@@ -213,7 +212,7 @@ export class ExecuteCommandsService {
   */
   setFontName(fontName: string): void {
     if (this.savedSelection) {
-      //const deletedValue = this.deleteAndGetElement();
+      // const deletedValue = this.deleteAndGetElement();
       const restored = Utils.restoreSelection(this.savedSelection);
       if (restored) {
         const fontFamily = '<span style="font-family: ' + fontName + ';">' + this.savedSelection + '</span>';
@@ -233,6 +232,7 @@ export class ExecuteCommandsService {
       }
     }
   }
+
   /**
    * Set the font size
    * @param size of the font that needs to be set
@@ -277,5 +277,5 @@ export class ExecuteCommandsService {
     const ytRegExp = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/;
     return ytRegExp.test(url);
   }
-  //https://maturify-resources-dev.s3-eu-west-1.amazonaws.com/editor-images/raciit.mp4
+  // https://maturify-resources-dev.s3-eu-west-1.amazonaws.com/editor-images/raciit.mp4
 }

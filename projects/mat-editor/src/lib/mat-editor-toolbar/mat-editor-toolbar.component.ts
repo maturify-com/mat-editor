@@ -209,7 +209,7 @@ export class MatEditorToolbarComponent implements OnInit {
   }
 
   /**
-   * show insert table 
+   * show insert table
    */
   showTable(): void {
     if (this.showTableOptions) {
@@ -254,6 +254,6 @@ export class MatEditorToolbarComponent implements OnInit {
           console.log(error);
         }
       }
-    }
+    };
   }
 }

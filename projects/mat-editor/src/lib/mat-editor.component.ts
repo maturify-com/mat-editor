@@ -72,7 +72,7 @@ export class MatEditorComponent implements OnInit {
    * All avaibale inputs inputs can be provided in the configuration as JSON
    * inputs provided directly are considered as top priority
    */
-  //@Input() config = matEditorConfig;
+  // @Input() config = matEditorConfig;
   /** emits `blur` event when focused out from the textarea */
   @Output() blur: EventEmitter<string> = new EventEmitter<string>();
   /** emits `focus` event when focused in to the textarea */
@@ -128,7 +128,7 @@ export class MatEditorComponent implements OnInit {
   }
 
   /**
- * returns a json containing all the input configs 
+ * returns a json containing all the input configs
  */
   getEditorConfigs(): any {
     return {
@@ -162,7 +162,7 @@ export class MatEditorComponent implements OnInit {
   * @param value value to be executed when there is a change in contenteditable
   */
   writeValue(value: any): void {
-    //this.togglePlaceholder(value);
+    // this.togglePlaceholder(value);
     if (value === null || value === undefined || value === '' || value === '<br>') {
       value = null;
     }
