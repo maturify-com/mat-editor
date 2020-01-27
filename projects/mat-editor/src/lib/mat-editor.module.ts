@@ -7,7 +7,7 @@ import { from } from 'rxjs';
 
 import { MatEditorToolbarComponent } from './mat-editor-toolbar/mat-editor-toolbar.component';
 import { MatEditorComponent } from './mat-editor.component';
-import { ImageUploadService } from './common/ImageUpload.service';
+import { ImageUploadService } from './common/imageUpload.service';
 import { ExecuteCommandsService } from './common/execute-commands.service';
 
 @NgModule({
