@@ -30,7 +30,6 @@ export class AppComponent implements OnInit {
   }
 
   public uploadImage(event): void {
-    console.log(event);
     // This fuction can be used to upload images through the Angular app, which is integrated with the mat-editor
 
     /* Capture the image from the event, upload it to an object storage container and then set the Image url of the
