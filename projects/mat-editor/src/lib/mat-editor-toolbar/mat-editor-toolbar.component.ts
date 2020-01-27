@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ExecuteCommandsService } from '../common/execute-commands.service';
 import { ImageUploadService } from '../common/imageUpload.service';
@@ -7,11 +7,11 @@ import { HttpResponse } from '@angular/common/http';
 import * as Utils from '../common/mat-editor.utils';
 
 @Component({
-  selector: 'app-mat-editor-toolbar',
+  selector: 'mat-editor-toolbar',
   templateUrl: './mat-editor-toolbar.component.html',
   styleUrls: ['./mat-editor-toolbar.component.scss']
 })
-export class MatEditorToolbarComponent implements OnInit {
+export class MatEditorToolbarComponent implements OnInit, OnDestroy {
   private imageURLSubscription: Subscription;
   private imageURL: any;
 
@@ -33,7 +33,7 @@ export class MatEditorToolbarComponent implements OnInit {
   public fontName = [
     {
       label: 'Trebuchet',
-      value: "'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif"
+      value: '"Trebuchet MS", "Helvetica Neue", Arial, sans-serif'
     },
     {
       label: 'Georgia',
@@ -66,7 +66,7 @@ export class MatEditorToolbarComponent implements OnInit {
       this.imageURL = url;
       try {
         // Removing the loader after image gets added to the content
-        this.executeCommand.removeElement("matLoading");
+        this.executeCommand.removeElement('matLoading');
         this.executeCommand.insertImage(this.imageURL);
       } catch (error) {
         console.log(error);
@@ -138,7 +138,7 @@ export class MatEditorToolbarComponent implements OnInit {
    * inserts link in the editor
    */
   insertLink(): void {
-    document.getElementById("myForm").style.display = "none";
+    document.getElementById('myForm').style.display = 'none';
     try {
       this.executeCommand.createLink(this.imageUrlForm.value);
     } catch (error) {
@@ -160,7 +160,7 @@ export class MatEditorToolbarComponent implements OnInit {
       if (input.files.length > 0) {
         const file = input.files[0];
         try {
-          this.executeCommand.showLoadingTag("[..Uploading Image..]");
+          this.executeCommand.showLoadingTag('[..Uploading Image..]');
           this.imageUploadService.onImageUpload.emit(file);
         } catch (error) {
           console.log(error);
@@ -181,20 +181,20 @@ export class MatEditorToolbarComponent implements OnInit {
   showVideo() {
     if (this.showVideoModal) {
       this.showVideoModal = false;
-      document.getElementById("myForm-2").style.display = "none";
+      document.getElementById('myForm-2').style.display = 'none';
     } else {
       this.showVideoModal = true;
-      document.getElementById("myForm-2").style.display = "flex";
+      document.getElementById('myForm-2').style.display = 'flex';
     }
   }
 
   showLink() {
     if (this.showModal) {
       this.showModal = false;
-      document.getElementById("myForm").style.display = "none";
+      document.getElementById('myForm').style.display = 'none';
     } else {
       this.showModal = true;
-      document.getElementById("myForm").style.display = "block";
+      document.getElementById('myForm').style.display = 'block';
     }
   }
 
@@ -216,10 +216,10 @@ export class MatEditorToolbarComponent implements OnInit {
   showTable(): void {
     if (this.showTableOptions) {
       this.showTableOptions = false;
-      document.getElementById("showTable").style.display = "none";
+      document.getElementById('showTable').style.display = 'none';
     } else {
       this.showTableOptions = true;
-      document.getElementById("showTable").style.display = "block";
+      document.getElementById('showTable').style.display = 'block';
     }
   }
 

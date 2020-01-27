@@ -177,13 +177,13 @@ export class ExecuteCommandsService {
       if (restored) {
         let html = '<table class="tableContent" style="border-collapse:collapse;width:80%;margin:5% auto;table-layout: auto;" "><tbody>';
         for (let i = 0; i < rows; i++) {
-          html += "<tr>";
+          html += '<tr>';
           for (let j = 0; j < collumns; j++) {
             html += '<td style="padding:15px;border:1px solid black;vertical-align:middle;"></td>';
           }
-          html += "</tr>";
+          html += '</tr>';
         }
-        html += "</tbody></table>";
+        html += '</tbody></table>';
         const inserted = document.execCommand('insertHTML', false, html);
       }
     }
@@ -196,7 +196,7 @@ export class ExecuteCommandsService {
   showLoadingTag(message: String): any {
     if (this.savedSelection) {
       const restored = Utils.restoreSelection(this.savedSelection);
-      let html = '<br><p id="matLoading">' + message + '</p>';
+      const html = '<br><p id="matLoading">' + message + '</p>';
       if (restored) {
         const inserted = document.execCommand('insertHTML', false, html);
       }
@@ -208,8 +208,10 @@ export class ExecuteCommandsService {
   * @param elementId Element id which should be removed
   */
   removeElement(elementId: string): any {
-    let element = document.getElementById(elementId);
-    element && element.parentNode && element.parentNode.removeChild(element);
+    const element = document.getElementById(elementId);
+    if (element && element.parentNode) {
+      element.parentNode.removeChild(element);
+    }
   }
 
   increaseFontSize(): void {
@@ -284,7 +286,7 @@ export class ExecuteCommandsService {
    */
   embedYoutubeUrl(url: string): any {
     const link = url;
-    const newUrl = link.replace("watch?v=", "embed/");
+    const newUrl = link.replace('watch?v=', 'embed/');
     return newUrl;
   }
 

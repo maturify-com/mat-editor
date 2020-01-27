@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2, ViewChild, Output, EventEmitter, Input, forwardRef, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Renderer2, ViewChild, Output, EventEmitter, Input, forwardRef, SimpleChanges, OnDestroy } from '@angular/core';
 import { ExecuteCommandsService } from './common/execute-commands.service';
 import { ImageUploadService } from './common/imageUpload.service';
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { matEditorConfig } from './common/mat-editor.defaults';
 import * as Utils from './common/mat-editor.utils';
 
 @Component({
-  selector: 'app-mat-editor',
+  selector: 'mat-editor',
   templateUrl: './mat-editor.component.html',
   styleUrls: ['./mat-editor.component.scss'],
   providers: [{
@@ -17,10 +17,10 @@ import * as Utils from './common/mat-editor.utils';
     multi: true
   }]
 })
-export class MatEditorComponent implements OnInit {
+export class MatEditorComponent implements OnInit, OnDestroy {
 
   /**
-   * Sends the image URL to the toolbar when it gets set through the directive 
+   * Sends the image URL to the toolbar when it gets set through the directive
    */
   @Input()
   set imageURL(url: any) {
@@ -83,7 +83,7 @@ export class MatEditorComponent implements OnInit {
   @Output() blur: EventEmitter<string> = new EventEmitter<string>();
   /** emits `focus` event when focused in to the textarea */
   @Output() focus: EventEmitter<string> = new EventEmitter<string>();
-  @Output() onImgUpload = new EventEmitter();
+  @Output() imageFile = new EventEmitter();
   @ViewChild('ngxTextArea') textArea: any;
   @ViewChild('ngxWrapper') ngxWrapper: any;
   Utils: any = Utils;
@@ -124,7 +124,7 @@ export class MatEditorComponent implements OnInit {
   ngOnInit() {
     // Subscribe to any images sent by the mat-editor toolbar component
     this.imageSubscription = this.imageUploadService.onImageUpload.subscribe((file) => {
-      this.onImgUpload.emit(file);
+      this.imageFile.emit(file);
     });
 
     /**

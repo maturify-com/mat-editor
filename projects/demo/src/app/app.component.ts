@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatEditorModule } from 'mat-editor';
 
 @Component({
   selector: 'app-root',
@@ -24,14 +25,15 @@ export class AppComponent implements OnInit {
   public imageURL: string;
 
   ngOnInit() {
-    document.getElementById("mat-editor").style.marginRight = "10%";
-    document.getElementById("mat-editor").style.marginLeft = "10%";
+    document.getElementById('mat-editor').style.marginRight = '10%';
+    document.getElementById('mat-editor').style.marginLeft = '10%';
   }
 
   public uploadImage(event): void {
+    console.log(event);
     // This fuction can be used to upload images through the Angular app, which is integrated with the mat-editor
 
-    /* Capture the image from the event, upload it to an object storage container and then set the Image url of the 
+    /* Capture the image from the event, upload it to an object storage container and then set the Image url of the
     relevant image. The below links were added for the demo */
     this.imageURL = 'https://files.startupranking.com/startup/thumb/552402_e627875ed7855d62ffa001518202a6d0612805f4_maturify_m.jpeg';
     if (this.count % 2 === 1) {
