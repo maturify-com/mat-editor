@@ -1,11 +1,14 @@
 {
   "name": "mat-editor",
-  "version": "1.0.3",
+  "version": "1.1.5",
   "description": "This is a simple editor for angular lovers.",
-  "keywords" :["Angular","Editor"],
+  "keywords": [
+    "Angular",
+    "Editor"
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/maturify-com/mat-editor"
+    "type": "git",
+    "url": "https://github.com/maturify-com/mat-editor"
   },
   "peerDependencies": {
     "@angular/common": "^7.0.0",

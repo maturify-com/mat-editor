@@ -71,7 +71,6 @@ export class ExecuteCommandsService {
   * @param endPoint back end endpoint to which the image has to be sent
   */
   uploadImage(file: File, endPoint: string): any {
-    console.log(file);
     if (!endPoint) {
       throw new Error('Image Endpoint isn`t provided or invalid');
     }
@@ -116,7 +115,6 @@ export class ExecuteCommandsService {
    * @param endpoint back end enpoint to which the video has to be sent
    */
   uploadVideoToServer(file: File, endpoint: string): any {
-    console.log(file);
     if (!endpoint) {
       throw new Error('Video Endpoint isn`t provided or invalid');
     }
@@ -190,9 +188,30 @@ export class ExecuteCommandsService {
       }
     }
   }
+
   /**
-   *
+   * Adds a loading tag using a HTML paragraph element
+   * @param message The required message that should be shown when loading
    */
+  showLoadingTag(message: String): any {
+    if (this.savedSelection) {
+      const restored = Utils.restoreSelection(this.savedSelection);
+      let html = '<br><p id="matLoading">' + message + '</p>';
+      if (restored) {
+        const inserted = document.execCommand('insertHTML', false, html);
+      }
+    }
+  }
+
+  /**
+  *  Removes an HTML element in the editor content using the HTML ID
+  * @param elementId Element id which should be removed
+  */
+  removeElement(elementId: string): any {
+    let element = document.getElementById(elementId);
+    element && element.parentNode && element.parentNode.removeChild(element);
+  }
+
   increaseFontSize(): void {
     let defaultSize = 16;
     defaultSize += 1;
