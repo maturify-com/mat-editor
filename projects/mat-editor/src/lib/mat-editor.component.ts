@@ -20,7 +20,7 @@ import * as Utils from './common/mat-editor.utils';
 export class MatEditorComponent implements OnInit {
 
   /**
-   * Sends the image url to the toolbar When it get sets through the directive 
+   * Sends the image URL to the toolbar when it gets set through the directive 
    */
   @Input()
   set imageURL(url: any) {
@@ -122,7 +122,7 @@ export class MatEditorComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //subscribe for any images sent by the mat-editor toolbar component
+    // Subscribe to any images sent by the mat-editor toolbar component
     this.imageSubscription = this.imageUploadService.onImageUpload.subscribe((file) => {
       this.onImgUpload.emit(file);
     });

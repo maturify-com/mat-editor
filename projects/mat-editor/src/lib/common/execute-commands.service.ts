@@ -191,7 +191,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-   * adds a loading tag using a html paragraph element
+   * Adds a loading tag using a HTML paragraph element
    * @param message The required message that should be shown when loading
    */
   showLoadingTag(message: String): any {
@@ -205,7 +205,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-  *  removes an html element in the editor content using the html id
+  *  Removes an HTML element in the editor content using the HTML ID
   * @param elementId Element id which should be removed
   */
   removeElement(elementId: string): any {

@@ -62,10 +62,10 @@ export class MatEditorToolbarComponent implements OnInit {
 
   ngOnInit() {
     this.imageURLSubscription = this.imageUploadService.afterImageUpload.subscribe((url) => {
-      // subscribing for a image url which is sent from the mat-editor component
+      // Subscribing to an image URL which is sent from the mat-editor component
       this.imageURL = url;
       try {
-        //removing the loader after image gets added to the content
+        // Removing the loader after image gets added to the content
         this.executeCommand.removeElement("matLoading");
         this.executeCommand.insertImage(this.imageURL);
       } catch (error) {

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mat-Editor';
-  count = 1; //count variable is used to demo the function uploadImage
+  count = 1; // Count variable is used to demo the function 'uploadImage'
   editorConfig = {
     editable: true,
     spellcheck: false,
@@ -16,8 +16,8 @@ export class AppComponent {
     minHeight: '5rem',
     placeholder: 'Type text',
     translate: 'no',
-    videoEndPoint: 'Add the video upload endpoint (directly calls through the mat-editor)',
-    imageEndPoint: 'Add the image upload endpoint (directly calls through the mat-editor)',
+    videoEndPoint: 'Add the video upload endpoint (directly called through the mat-editor)',
+    imageEndPoint: 'Add the image upload endpoint (directly called through the mat-editor)',
     toolbar: []
   };
 
@@ -29,9 +29,9 @@ export class AppComponent {
   }
 
   public uploadImage(event): void {
-    // This fuction can be used to upload images through the Angular app, which has integrated with the mat-editor
+    // This fuction can be used to upload images through the Angular app, which is integrated with the mat-editor
 
-    /* Capture the image from the event, upload it to a object storage container and then set the Image url of the 
+    /* Capture the image from the event, upload it to an object storage container and then set the Image url of the 
     relevant image. The below links were added for the demo */
     this.imageURL = 'https://files.startupranking.com/startup/thumb/552402_e627875ed7855d62ffa001518202a6d0612805f4_maturify_m.jpeg';
     if (this.count % 2 === 1) {
