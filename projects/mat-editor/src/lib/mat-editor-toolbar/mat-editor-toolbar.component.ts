@@ -15,7 +15,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
   private imageURLSubscription: Subscription;
   private imageURL: any;
 
-  /** holds values of the insert link form */
+  /** Holds values of the insert link form */
   public imageUrlForm: FormGroup;
   public videoUrlForm: FormGroup;
   public tableForm: FormGroup;
@@ -87,7 +87,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
 
 
   /**
-   * enable or diable toolbar based on configuration
+   * Enable or diable toolbar based on configuration
    *
    * @param value name of the toolbar buttons
    */
@@ -117,7 +117,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
       console.log(error);
     }
   }
-  /** set font size */
+  /** Set font size */
   setFontSize(): void {
     try {
       this.executeCommand.increaseFontSize();
@@ -127,7 +127,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * triggers command from the toolbar to be executed and emits an event
+   * Triggers command from the toolbar to be executed and emits an event
    * @param command name of the command to be executed
    */
   triggerCommand(command: string): void {
@@ -135,7 +135,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * inserts link in the editor
+   * Inserts link in the editor
    */
   insertLink(): void {
     document.getElementById('myForm').style.display = 'none';
@@ -147,7 +147,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * enable image upload
+   * Enable image upload
    */
   enableImageUpload(): void {
     // Create the input type file and click
@@ -169,7 +169,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
     };
   }
 
-  /** append the image in the editor */
+  /** Append the image in the editor */
   insertImage(url): void {
     try {
       this.executeCommand.insertImage(url);
@@ -199,7 +199,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * add the video link
+   * Add the video link
    */
   addVideoLink(): void {
     this.showModal = false;
@@ -211,7 +211,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * show insert table
+   * Show insert table
    */
   showTable(): void {
     if (this.showTableOptions) {
@@ -235,7 +235,7 @@ export class MatEditorToolbarComponent implements OnInit, OnDestroy {
     }
   }
 
-  /** insert videos in to the editor */
+  /** Insert videos in to the editor */
   uploadVideo(): void {
     // Create the input type file and click
     const input = document.createElement('input');

@@ -1,5 +1,5 @@
 /**
- * enable or disable toolbar based on configuration
+ * Enable or disable toolbar based on configuration
  *
  * @param value toolbar item
  * @param toolbar toolbar configuration object
@@ -21,7 +21,7 @@ export function canEnableToolbarOptions(value: string, toolbar: any): boolean {
 }
 
 /**
- * set editor configuration
+ * Set editor configuration
  * @param value configuration via [config] property
  * @param matEditorConfig default editor configuration
  * @param input direct configuration inputs via directives
@@ -41,7 +41,7 @@ export function getEditorConfiguration(value: any, matEditorConfig: any, input: 
 }
 
 /**
- * return vertical if the element is the resizer property is set to basic
+ * Return vertical if the element is the resizer property is set to basic
  *
  * @param resizer type of resizer, either basic or stack
  */
@@ -53,7 +53,7 @@ export function canResize(resizer: string): any {
 }
 
 /**
- * save selection when the editor is focussed out
+ * Save selection when the editor is focussed out
  */
 export function saveSelection(): any {
   if (window.getSelection) {
@@ -68,7 +68,7 @@ export function saveSelection(): any {
 }
 
 /**
- * restore selection when the editor is focussed in
+ * Restore selection when the editor is focussed in
  *
  * @param range saved selection when the editor is focussed out
  */

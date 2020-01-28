@@ -36,7 +36,7 @@ export class ExecuteCommandsService {
     document.execCommand(command, false, null);
   }
 
-  /** insert HTML */
+  /** Insert HTML */
   private insertHtml(html: string): void {
     const isHTMLInserted = document.execCommand('insertHTML', false, html);
 
@@ -65,7 +65,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-  * uploads image to the server
+  * Uploads image to the server
   *
   * @param file Image that has to be uploaded to the server
   * @param endPoint back end endpoint to which the image has to be sent
@@ -88,12 +88,12 @@ export class ExecuteCommandsService {
   }
 
   /**
-  * inserts image in to the editor
+  * Inserts image in to the editor
   *
   * @param imageURI url of the image to be inserted
   */
   insertImage(imageUrl: string): void {
-    const image = '<img src=' + imageUrl + ' width=100% >'; // fix a width to the image
+    const image = '<img src=' + imageUrl + ' width=100% >'; // Fix a width to the image
     if (this.savedSelection) {
       if (imageUrl) {
         const restored = Utils.restoreSelection(this.savedSelection);
@@ -132,7 +132,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-  * inserts video in to the editor
+  * Inserts video in to the editor
   *
   * @param videParams url of the image to be inserted
   */
@@ -227,7 +227,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-  * set font name/family for text
+  * Set font name/family for text
   *
   * @param fontName font-family to be set
   */
@@ -255,7 +255,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-   * Set the font size
+   * Set the font size, commented out since the function is not implemented yet
    * @param size of the font that needs to be set
    */
   // setFontSize(fontSize: string): void {
@@ -291,12 +291,11 @@ export class ExecuteCommandsService {
   }
 
   /**
-   * checks the input url is a valid youtube URL or not
+   * Checks the input url is a valid youtube URL or not
    * @param url Youtue URL
    */
   private isYoutubeLink(url: string): boolean {
     const ytRegExp = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/;
     return ytRegExp.test(url);
   }
-  // https://maturify-resources-dev.s3-eu-west-1.amazonaws.com/editor-images/raciit.mp4
 }

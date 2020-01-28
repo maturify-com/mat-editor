@@ -196,7 +196,7 @@ export class MatEditorComponent implements OnInit, OnDestroy {
   }
 
   /**
-  * exectue commands from toolbar
+  * Exectue commands from toolbar
   * @param commandName name of the command to be executed
   */
   executeCommands(commandName: string): void {
