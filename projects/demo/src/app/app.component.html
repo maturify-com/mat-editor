@@ -3,6 +3,7 @@
   <img width="900" alt="Angular Logo" src="../assets/mat-editor.png">
 </div>
 <div style="margin-bottom: 1em; display: flex; justify-content: center;">
-  <app-mat-editor [imageURL]="this.imageURL" [spellcheck]="true"  [config]="editorConfig"
-    (onImgUpload)="uploadImage($event)"></app-mat-editor>
+  <mat-editor id="mat-editor" [imageURL]="this.imageURL" [spellcheck]="true" [config]="editorConfig"
+    (imageFile)="uploadImage($event)">
+  </mat-editor>
 </div>
