@@ -1,5 +1,5 @@
 <div class="mat-editor" [style.width]="config['width']" [style.minWidth]="config['minWidth']">
-  <app-mat-editor-toolbar [config]="config" (execute)="executeCommands($event)"></app-mat-editor-toolbar>
+  <mat-editor-toolbar [config]="config" (execute)="executeCommands($event)"></mat-editor-toolbar>
   <div class="mat-wrapper">
     <div class="mat-editor-textarea" contenteditable="true" [attr.contenteditable]="config['editable']"
       (blur)="onTextAreaBlur()" [style.height]="config['height']" [attr.spellcheck]="config['spellcheck']"

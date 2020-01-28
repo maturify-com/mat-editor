@@ -36,7 +36,7 @@ export class ExecuteCommandsService {
     document.execCommand(command, false, null);
   }
 
-  /** insert HTML */
+  /** Insert HTML */
   private insertHtml(html: string): void {
     const isHTMLInserted = document.execCommand('insertHTML', false, html);
 
@@ -51,7 +51,6 @@ export class ExecuteCommandsService {
  */
   createLink(params: any): void {
     if (this.savedSelection) {
-      //const newUrl = '<a href="' + params.urlLink + '" target="_blank">' + this.savedSelection.startContainer.data + '</a>';
       if (document.getSelection().type !== 'Range') {
         const restored = Utils.restoreSelection(this.savedSelection);
         if (restored) {
@@ -66,7 +65,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-  * uploads image to the server
+  * Uploads image to the server
   *
   * @param file Image that has to be uploaded to the server
   * @param endPoint back end endpoint to which the image has to be sent
@@ -89,12 +88,12 @@ export class ExecuteCommandsService {
   }
 
   /**
-  * inserts image in to the editor
+  * Inserts image in to the editor
   *
   * @param imageURI url of the image to be inserted
   */
   insertImage(imageUrl: string): void {
-    const image = '<img src=' + imageUrl + ' width=100% >' // fix a width to the image
+    const image = '<img src=' + imageUrl + ' width=100% >'; // Fix a width to the image
     if (this.savedSelection) {
       if (imageUrl) {
         const restored = Utils.restoreSelection(this.savedSelection);
@@ -111,7 +110,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-   * 
+   *
    * @param file video that needs to be uploaded
    * @param endpoint back end enpoint to which the video has to be sent
    */
@@ -133,7 +132,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-  * inserts video in to the editor
+  * Inserts video in to the editor
   *
   * @param videParams url of the image to be inserted
   */
@@ -142,7 +141,7 @@ export class ExecuteCommandsService {
       if (videoUrl) {
         const restored = Utils.restoreSelection(this.savedSelection);
         if (restored) {
-          const video = '<video width="100%" controls> <source src=' + videoUrl + ' type="video/mp4"></video>'
+          const video = '<video width="100%" controls> <source src=' + videoUrl + ' type="video/mp4"></video>';
           const inserted = document.execCommand('insertHTML', false, video);
           if (!inserted) {
             throw new Error('Invalid URL');
@@ -168,7 +167,7 @@ export class ExecuteCommandsService {
   }
 
   /**
-   * 
+   *
    * @param rows Number of rows that includes in the table
    * @param collumns Number of collumns that includes in the table
    */
@@ -178,13 +177,13 @@ export class ExecuteCommandsService {
       if (restored) {
         let html = '<table class="tableContent" style="border-collapse:collapse;width:80%;margin:5% auto;table-layout: auto;" "><tbody>';
         for (let i = 0; i < rows; i++) {
-          html += "<tr>";
+          html += '<tr>';
           for (let j = 0; j < collumns; j++) {
-            html += '<td style="padding:15px;border:1px solid black;vertical-align:middle;"></td>'
+            html += '<td style="padding:15px;border:1px solid black;vertical-align:middle;"></td>';
           }
-          html += "</tr>"
+          html += '</tr>';
         }
-        html += "</tbody></table>";
+        html += '</tbody></table>';
         const inserted = document.execCommand('insertHTML', false, html);
       }
     }
@@ -197,7 +196,7 @@ export class ExecuteCommandsService {
   showLoadingTag(message: String): any {
     if (this.savedSelection) {
       const restored = Utils.restoreSelection(this.savedSelection);
-      let html = '<br><p id="matLoading">' + message + '</p>';
+      const html = '<br><p id="matLoading">' + message + '</p>';
       if (restored) {
         const inserted = document.execCommand('insertHTML', false, html);
       }
@@ -209,8 +208,10 @@ export class ExecuteCommandsService {
   * @param elementId Element id which should be removed
   */
   removeElement(elementId: string): any {
-    let element = document.getElementById(elementId);
-    element && element.parentNode && element.parentNode.removeChild(element);
+    const element = document.getElementById(elementId);
+    if (element && element.parentNode) {
+      element.parentNode.removeChild(element);
+    }
   }
 
   increaseFontSize(): void {
@@ -226,13 +227,13 @@ export class ExecuteCommandsService {
   }
 
   /**
-  * set font name/family for text
+  * Set font name/family for text
   *
   * @param fontName font-family to be set
   */
   setFontName(fontName: string): void {
     if (this.savedSelection) {
-      //const deletedValue = this.deleteAndGetElement();
+      // const deletedValue = this.deleteAndGetElement();
       const restored = Utils.restoreSelection(this.savedSelection);
       if (restored) {
         const fontFamily = '<span style="font-family: ' + fontName + ';">' + this.savedSelection + '</span>';
@@ -252,8 +253,9 @@ export class ExecuteCommandsService {
       }
     }
   }
+
   /**
-   * Set the font size
+   * Set the font size, commented out since the function is not implemented yet
    * @param size of the font that needs to be set
    */
   // setFontSize(fontSize: string): void {
@@ -284,17 +286,16 @@ export class ExecuteCommandsService {
    */
   embedYoutubeUrl(url: string): any {
     const link = url;
-    const newUrl = link.replace("watch?v=", "embed/");
+    const newUrl = link.replace('watch?v=', 'embed/');
     return newUrl;
   }
 
   /**
-   * checks the input url is a valid youtube URL or not
+   * Checks the input url is a valid youtube URL or not
    * @param url Youtue URL
    */
   private isYoutubeLink(url: string): boolean {
     const ytRegExp = /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/;
     return ytRegExp.test(url);
   }
-  //https://maturify-resources-dev.s3-eu-west-1.amazonaws.com/editor-images/raciit.mp4
 }
