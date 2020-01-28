@@ -5,7 +5,7 @@
 ## Other information
 
 Check if you have done the following before creating the PR
-- [ ] console logs have been deleted
-- [ ] lint issues are checked and fixed with `ng lint`
+- [ ] Console logs have been deleted
+- [ ] Lint issues are checked and fixed with `ng lint`
 - [ ] Tested for a build (ran `ng build mat-editor` without errors)
-- [ ] No commented code (If commented the reasons are given)
+- [ ] No commented code (if commented the reasons are given)
