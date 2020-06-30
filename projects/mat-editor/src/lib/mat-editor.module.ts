@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 
 import { MatEditorToolbarComponent } from './mat-editor-toolbar/mat-editor-toolbar.component';
 import { MatEditorComponent } from './mat-editor.component';
-
+import { ImageUploadService } from './common/imageUpload.service';
 import { ExecuteCommandsService } from './common/execute-commands.service';
 
 @NgModule({
@@ -24,6 +24,6 @@ import { ExecuteCommandsService } from './common/execute-commands.service';
   exports: [
     MatEditorComponent
   ],
-  providers: [ExecuteCommandsService]
+  providers: [ExecuteCommandsService, ImageUploadService]
 })
 export class MatEditorModule { }
